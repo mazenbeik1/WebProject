@@ -1,4 +1,5 @@
 let LoginData;
+let assignmentsData;
 
 const dragStart = (target) => {
     target.classList.add("dragging");
@@ -56,7 +57,7 @@ document.addEventListener("dragend", (e) => {
     }
 });
 
-async function requestData()
+async function requestLoginData()
 {
     let promise = new Promise(function(Resolve)
     {
@@ -69,6 +70,24 @@ async function requestData()
     promise.then(
         function(data){
             LoginData = data;
+        }
+    );
+    await promise;
+}
+
+async function requestAssignments()
+{
+    let promise = new Promise(function(Resolve)
+    {
+        fetch("assignments.json")
+        .then(Response => Response.json())
+        .then(data => {
+            Resolve(data);
+        })
+    })
+    promise.then(
+        function(data){
+            assignmentsData = data;
         }
     );
     await promise;
@@ -100,11 +119,25 @@ function changeView(id)
     }
 }
 
+function getPersonalData(id)
+{
+    let personalData;
+    assignmentsData.forEach( data =>
+        {
+            if(data.id == id)
+            {
+                personalData = data;
+            }
+        })
+    return personalData;
+}
+
 function renderData()
 {
     LoginData.forEach(data =>{
+        let personalData = getPersonalData(data.id);
         let card = document.createElement("div");
-        card.innerText=data.id;
+        card.innerText=`${data.id}\n${personalData.fName}\n${personalData.lName}`;
         card.className="card";
         card.draggable="true";
         card.setAttribute("ondragstart","drag(event)");
@@ -117,7 +150,8 @@ function renderData()
 
 async function setup()
 {
-    await requestData();
+    await requestLoginData();
+    await requestAssignments();
     renderData()
     
 }
