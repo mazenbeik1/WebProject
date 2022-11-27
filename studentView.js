@@ -35,17 +35,21 @@ function requestStudentData()
 
 function render()
 {
-    let fName = document.createElement("div");
-    fName.innerHTML=`${studentData.fName} ${studentData.lName}`;
-    document.getElementById("studentView").appendChild(fName);
+    if(userRole == "expert" || userRole == "student")
+    {
+        let fName = document.createElement("div");
+        fName.innerHTML=`${studentData.fName} ${studentData.lName}`;
+        document.getElementById("studentView").appendChild(fName);
 
-    let id = document.createElement("div");
-    id.innerHTML=studentID;
-    document.getElementById("studentView").appendChild(id);
+        let id = document.createElement("div");
+        id.innerHTML=studentID;
+        document.getElementById("studentView").appendChild(id);
 
-    let grade = document.createElement("div");
-    grade.innerHTML=`Score: ${studentData.grade}/100`;
-    document.getElementById("studentView").appendChild(grade);
+        let grade = document.createElement("div");
+        grade.innerHTML=`Score: ${studentData.grade}/100`;
+        document.getElementById("studentView").appendChild(grade);
+    }
+    
 
     if(userRole == "nerd")
     {

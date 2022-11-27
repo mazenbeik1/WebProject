@@ -1,4 +1,5 @@
 let userID= localStorage.getItem("UserID");
+let userRole = localStorage.getItem("UserRole")
 let assignmentsData;
 
 function renderTable(assignedStudent)
@@ -6,13 +7,20 @@ function renderTable(assignedStudent)
     
     assignmentsData.forEach(assignment =>{
         if( assignment.assignedNerd == userID)
-        {
-            let elem = document.createElement("tr");
-            elem.innerHTML = `<td>${assignment.id}</td> <td>${assignment.fName}</td> <td>${assignment.lName}</td> <td><button  id="${assignment.id}" onclick="studentView(this.id)"> View </button></td>`
-            document.getElementById("assignmentsTable").appendChild(elem);
+        {   
+            if(userRole == "expert")
+            {
+                let elem = document.createElement("tr");
+                elem.innerHTML = `<td>${assignment.id}</td> <td>${assignment.fName}</td> <td>${assignment.lName}</td> <td><button  id="${assignment.id}" onclick="studentView(this.id)"> View </button></td>`
+                document.getElementById("assignmentsTable").appendChild(elem);
+            }else if(userRole == "nerd")
+            {
+                let elem = document.createElement("tr");
+                elem.innerHTML = `<td>******</td> <td>******</td> <td>******</td> <td><button  id="${assignment.id}" onclick="studentView(this.id)"> View </button></td>`
+                document.getElementById("assignmentsTable").appendChild(elem);
+            }
         }
     })
-    
 }
 
 
@@ -48,7 +56,6 @@ async function requestData()
 async function setup()
 {
     await requestData();
-    console.log(assignmentsData);
     renderTable();
 }
 
