@@ -32,7 +32,7 @@ const drop = (event) => {
     event.preventDefault();
     event.currentTarget.innerHTML =
     event.currentTarget.innerHTML + event.dataTransfer.getData("text/html");
-    //chnage role in json
+    //change role in json file
 };
 
 const allowDrop = (event) => {
