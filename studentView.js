@@ -27,7 +27,7 @@ function requestStudentData() {
 }
 
 function render() {
-	if (userRole == "expert" || userRole == "student") {
+	if (userRole == "expert" || userRole == "student" || studentID==userID) {
 		let fName = document.createElement("div");
 		fName.innerHTML = `${studentData.fName} ${studentData.lName}`;
 		document.getElementById("studentView").appendChild(fName);
@@ -46,7 +46,7 @@ function render() {
         grade.id ="studentGrade";
 		document.getElementById("studentView").appendChild(grade);
 
-	if (userRole == "nerd") {
+	if (userRole == "nerd" && !(studentID==userID)) {
 		let elem = document.createElement("div");
 		elem.innerHTML = `<input id="studentGradeInput" type="text"><button id="gradeButton" onclick="gradeStudent()">Grade</button>`;
 

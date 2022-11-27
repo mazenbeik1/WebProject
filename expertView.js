@@ -1,5 +1,5 @@
-let LoginData;
 let assignmentsData;
+let UserID= localStorage.getItem("UserID");
 
 const dragStart = (target) => {
     target.classList.add("dragging");
@@ -57,24 +57,6 @@ document.addEventListener("dragend", (e) => {
     }
 });
 
-async function requestLoginData()
-{
-    let promise = new Promise(function(Resolve)
-    {
-        fetch("Login.json")
-        .then(Response => Response.json())
-        .then(data => {
-            Resolve(data);
-        })
-    })
-    promise.then(
-        function(data){
-            LoginData = data;
-        }
-    );
-    await promise;
-}
-
 async function requestAssignments()
 {
     let promise = new Promise(function(Resolve)
@@ -97,7 +79,7 @@ function getRole(id)
 {
     let role;
 
-    LoginData.forEach(data =>
+    assignmentsData.forEach(data =>
         {
             if(data.id == id)
             {
@@ -113,31 +95,21 @@ function changeView(id)
     {
         id = parseInt(id);
         let role = getRole(id);
+        localStorage.setItem("StudentID",id);
         window.location.href=`${role}View.html`;
         
+    }else if(id ==  UserID)
+    {
         localStorage.setItem("StudentID",id);
+        window.location.href=`studentView.html`;
     }
-}
-
-function getPersonalData(id)
-{
-    let personalData;
-    assignmentsData.forEach( data =>
-        {
-            if(data.id == id)
-            {
-                personalData = data;
-            }
-        })
-    return personalData;
 }
 
 function renderData()
 {
-    LoginData.forEach(data =>{
-        let personalData = getPersonalData(data.id);
+    assignmentsData.forEach(data =>{
         let card = document.createElement("div");
-        card.innerText=`${data.id}\n${personalData.fName}\n${personalData.lName}`;
+        card.innerText=`${data.id}\n${data.fName}\n${data.lName}`;
         card.className="card";
         card.draggable="true";
         card.setAttribute("ondragstart","drag(event)");
@@ -150,10 +122,8 @@ function renderData()
 
 async function setup()
 {
-    await requestLoginData();
     await requestAssignments();
-    renderData()
-    
+    renderData();
 }
 
 

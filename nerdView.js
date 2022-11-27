@@ -5,7 +5,13 @@ let assignmentsData;
 
 function renderTable(assignedStudent) {
 	assignmentsData.forEach((assignment) => {
-		if (assignment.assignedNerd == userID) {
+        if (assignment.id == StudentID)
+        {
+				let elem = document.createElement("tr");
+				elem.innerHTML = `<td>${assignment.id}</td> <td>${assignment.fName}</td> <td>${assignment.lName}</td> <td><button  id="${assignment.id}" type="button" class="btn btn-info" onclick="studentView(this.id)"> View </button></td>`;
+				document.getElementById("assignmentsTable").appendChild(elem);
+        }
+		if (assignment.assignedNerd == StudentID) {
 			if (userRole == "expert") {
 				let elem = document.createElement("tr");
 				elem.innerHTML = `<td>${assignment.id}</td> <td>${assignment.fName}</td> <td>${assignment.lName}</td> <td><button  id="${assignment.id}" type="button" class="btn btn-info" onclick="studentView(this.id)"> View </button></td>`;
@@ -21,9 +27,8 @@ function renderTable(assignedStudent) {
 
 function studentView(id) {
 	id = parseInt(id);
-	window.location.href = "studentView.html";
-
 	localStorage.setItem("StudentID", id);
+	window.open("studentView.html");
 }
 
 async function requestData() {
