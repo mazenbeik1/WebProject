@@ -35,31 +35,33 @@ function render() {
 		let id = document.createElement("div");
 		id.innerHTML = studentID;
 		document.getElementById("studentView").appendChild(id);
-
-		let grade = document.createElement("div");
-		grade.innerHTML = `Score: ${studentData.grade}/100`;
-		document.getElementById("studentView").appendChild(grade);
 	}
+
+        let assignment = document.createElement("div");
+		assignment.innerHTML = `here should show assignment data`;
+		document.getElementById("studentView").appendChild(assignment);
+
+        let grade = document.createElement("div");
+		grade.innerHTML = `Score: ${studentData.grade}/100`;
+        grade.id ="studentGrade";
+		document.getElementById("studentView").appendChild(grade);
 
 	if (userRole == "nerd") {
 		let elem = document.createElement("div");
-		elem.innerHTML = `YOU ARE A NERD. YOU CAN GRADE ME <button onclick="gradeStudent()">Grade</button>`;
+		elem.innerHTML = `<input id="studentGradeInput" type="text"><button id="gradeButton" onclick="gradeStudent()">Grade</button>`;
 
 		document.getElementById("studentView").appendChild(elem);
 	}
 }
 
 function gradeStudent() {
-	let gradeInput = document.createElement("input");
-	document.getElementById("studentView").appendChild(gradeInput);
-
-	let submitGrade = document.createElement("button"); 
-	submitGrade.innerHTML = `Give a Score`;
-	document.getElementById("studentView").appendChild(submitGrade);
-
-	let grade = document.createElement("div");
-	grade.innerHTML = `Score: ${gradeInput.value}/100`;
-	document.getElementById("studentView").appendChild(grade);
+	let Score = parseInt(document.getElementById("studentGradeInput").value);
+    if(Score > 100 || Score < 0 ){alert("WHAT THE FUCK BRO")}
+    else
+    {
+        document.getElementById("studentGrade").innerHTML = `Score: ${Score}/100`;
+        //change score in jason file
+    }
 }
 
 async function setup() {
