@@ -1,3 +1,5 @@
+let LoginData;
+
 const dragStart = (target) => {
     target.classList.add("dragging");
 };
@@ -30,6 +32,7 @@ const drop = (event) => {
     event.preventDefault();
     event.currentTarget.innerHTML =
     event.currentTarget.innerHTML + event.dataTransfer.getData("text/html");
+    //chnage role in json
 };
 
 const allowDrop = (event) => {
@@ -52,3 +55,72 @@ document.addEventListener("dragend", (e) => {
     dragEnd(e.target);
     }
 });
+
+async function requestData()
+{
+    let promise = new Promise(function(Resolve)
+    {
+        fetch("Login.json")
+        .then(Response => Response.json())
+        .then(data => {
+            Resolve(data);
+        })
+    })
+    promise.then(
+        function(data){
+            LoginData = data;
+        }
+    );
+    await promise;
+}
+
+function getRole(id)
+{
+    let role;
+
+    LoginData.forEach(data =>
+        {
+            if(data.id == id)
+            {
+                role = data.role;
+            }
+        })
+    return role;
+}
+
+function changeView(id)
+{
+    if(getRole(id)=="nerd" || getRole(id)=="student")
+    {
+        id = parseInt(id);
+        let role = getRole(id);
+        window.location.href=`${role}View.html`;
+        
+        localStorage.setItem("StudentID",id);
+    }
+}
+
+function renderData()
+{
+    LoginData.forEach(data =>{
+        let card = document.createElement("div");
+        card.innerText=data.id;
+        card.className="card";
+        card.draggable="true";
+        card.setAttribute("ondragstart","drag(event)");
+        card.setAttribute("data-id",`${data.id}`);
+        card.setAttribute("ondblclick","changeView(this.id)");
+        card.id=data.id;
+        document.getElementById(`${data.role}sColumn`).appendChild(card);
+    })
+}
+
+async function setup()
+{
+    await requestData();
+    renderData()
+    
+}
+
+
+setTimeout(setup,100);

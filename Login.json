@@ -1,4 +1,5 @@
 [
     {"id": "19290872" , "password": "mzmz", "role": "nerd"},
-    {"id": "20290872", "password": "Furkan", "role": "expert"}
+    {"id": "20290872", "password": "Furkan", "role": "expert"},
+    {"id": "19290123", "password": "Student", "role": "student"}
 ]

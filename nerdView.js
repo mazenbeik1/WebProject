@@ -1,5 +1,6 @@
 let userID= localStorage.getItem("UserID");
-let userRole = localStorage.getItem("UserRole")
+let userRole = localStorage.getItem("UserRole");
+let StudentID = userID;
 let assignmentsData;
 
 function renderTable(assignedStudent)
@@ -55,6 +56,7 @@ async function requestData()
 
 async function setup()
 {
+    if(localStorage.getItem("StudentID")){StudentID = localStorage.getItem("StudentID")}
     await requestData();
     renderTable();
 }
