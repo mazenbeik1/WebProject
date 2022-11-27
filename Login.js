@@ -25,7 +25,15 @@ async function login() {
 		if (elem.id == id && elem.password == password) {
 			localStorage.setItem("UserID", id);
 			localStorage.setItem("UserRole", elem.role);
-			window.location.href = `${elem.role}View.html`;
+			Swal.fire({
+				icon: "success",
+				title: "Logged in",
+			}).then(() => (window.location.href = `${elem.role}View.html`));
+		} else if (elem.id == id && elem.password != password) {
+			Swal.fire({
+				icon: "error",
+				title: "Wrong Password",
+			});
 		}
 	});
 }
