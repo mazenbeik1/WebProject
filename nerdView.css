@@ -1,3 +1,6 @@
+html {
+   background-color: #222;
+}
 body {
    display: flex;
    justify-content: center;
@@ -6,20 +9,25 @@ body {
 
 td,th
 {
-   padding: 7rem; 
+   padding: 6rem; 
+}
+
+tr {
+   background: #3F4447;
 }
 
 #assignmentsTable {
    border-collapse: collapse;
-   margin: 25px 0;
+   margin: 2rem 1rem;
    font-size: 0.9em;
    font-family: sans-serif;
-   min-width: 400px;
+   min-width: 15rem;
+   color: #FFF;
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 #assignmentsTable thead tr {
-   background-color: #009879;
+   background-color: #F39C12;
    color: #ffffff;
    text-align: left;
 }
