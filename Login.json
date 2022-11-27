@@ -1,4 +1,6 @@
 [
-    {"id": "19290872" , "password": "mzmz", "role": "nerd"},
-    {"id": "20290872", "password": "Furkan", "role": "expert"}
+    {"id": "19290872", "role": "nerd" , "password": "mzmz"},
+    {"id": "20290872", "role": "expert", "password": "Furkan"},
+    {"id": "21290872", "role" : "student" , "password": "Ogi"},
+    {"id": "22290872", "role" : "student" , "password": "Benjamin"}
 ]
