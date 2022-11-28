@@ -1,6 +1,6 @@
 [
     {"id": "19290872", "role" : "nerd" , "fName": "Mazen", "lName": "Elbeik", "grade": "0", "assignedNerd": "20290872"},
     {"id": "20290872", "role" : "expert" , "fName": "Ali", "lName": "Furkan", "grade": "0", "assignedNerd": "19290872"  },
-    {"id": "21290872", "role" : "student" , "fName": "Ogi", "lName": "Kral", "grade": "0", "assignedNerd": "19290872"},
+    {"id": "21290872", "role" : "student" , "fName": "Ogi", "lName": "Kral", "grade": "50", "assignedNerd": "19290872"},
     {"id": "22290872", "role" : "student" , "fName": "Benjamin", "lName": "Batyrov", "grade": "0", "assignedNerd": "19290872"}
 ]
