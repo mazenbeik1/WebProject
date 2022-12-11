@@ -1,6 +1,46 @@
 [
-    {"id": "19290872", "role" : "nerd" , "fName": "Mazen", "lName": "Elbeik", "grade": "0", "assignedNerd": "20290872"},
-    {"id": "20290872", "role" : "expert" , "fName": "Ali", "lName": "Furkan", "grade": "0", "assignedNerd": "19290872"  },
-    {"id": "21290872", "role" : "student" , "fName": "Ogi", "lName": "Kral", "grade": "50", "assignedNerd": "19290872"},
-    {"id": "22290872", "role" : "student" , "fName": "Benjamin", "lName": "Batyrov", "grade": "0", "assignedNerd": "19290872"}
+	{
+		"StudentId": "19290872",
+		"role": "nerd",
+		"fName": "Mazen",
+		"lName": "Elbeik",
+		"assignments": [
+			{ "assignmentId": 1, "grade": "0" },
+			{ "assignmentId": 2, "grade": "50" }
+		],
+		"assignedNerdId": "20290872"
+	},
+	{
+		"StudentId": "20290872",
+		"role": "expert",
+		"fName": "Ali",
+		"lName": "Furkan",
+		"assignments": [
+			{ "assignmentId": 3, "grade": "10" },
+			{ "assignmentId": 4, "grade": "20" }
+		],
+		"assignedNerdId": "19290872"
+	},
+	{
+		"StudentId": "21290872",
+		"role": "student",
+		"fName": "Ogi",
+		"lName": "Kral",
+		"assignments": [
+			{ "assignmentId": 5, "grade": "40" },
+			{ "assignmentId": 6, "grade": "60" }
+		],
+		"assignedNerdId": "19290872"
+	},
+	{
+		"StudentId": "22290872",
+		"role": "student",
+		"fName": "Benjamin",
+		"lName": "Batyrov",
+		"assignments": [
+			{ "assignmentId": 7, "grade": "100" },
+			{ "assignmentId": 8, "grade": "50" }
+		],
+		"assignedNerdId": "19290872"
+	}
 ]

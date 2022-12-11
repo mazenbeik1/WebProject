@@ -20,48 +20,56 @@ async function requestData() {
 
 function requestStudentData() {
 	assignmentsData.forEach((element) => {
-		if (element.id == studentID) {
+		if (element.StudentId == studentID) {
 			studentData = element;
 		}
 	});
 }
 
-function render() {
-	if (userRole == "expert" || userRole == "student" || studentID==userID) {
+function render(studentAssignment) {
+	console.log(studentAssignment);
+
+	if (userRole == "expert" || userRole == "student" || studentID == userID) {
 		let fName = document.createElement("div");
 		fName.innerHTML = `${studentData.fName} ${studentData.lName}`;
-		document.getElementById("studentView").appendChild(fName);
+		document.getElementById("card-text").appendChild(fName);
 
 		let id = document.createElement("div");
 		id.innerHTML = studentID;
-		document.getElementById("studentView").appendChild(id);
+		document.getElementById("card-text").appendChild(id);
 	}
 
-        let assignment = document.createElement("div");
-		assignment.innerHTML = `here should show assignment data`;
-		document.getElementById("studentView").appendChild(assignment);
+	let assignmentID = document.createElement("div");
+	assignmentID.innerHTML = `Assignment ID ${studentAssignment.assignmentId}`;
+	document.getElementById("card-title").appendChild(assignmentID);
 
-        let grade = document.createElement("div");
-		grade.innerHTML = `Score: ${studentData.grade}/100`;
-        grade.id ="studentGrade";
-		document.getElementById("studentView").appendChild(grade);
+	let assignment = document.createElement("div");
+	assignment.innerHTML = `here should show assignment data`;
+	document.getElementById("card-text").appendChild(assignment);
 
-	if (userRole == "nerd" && !(studentID==userID)) {
+	let grade = document.createElement("div");
+	grade.innerHTML = `Score: ${studentAssignment.grade}/100`;
+	grade.id = "studentGrade";
+	document.getElementById("card-text").appendChild(grade);
+
+	if (userRole == "nerd" && !(studentID == userID)) {
 		let elem = document.createElement("div");
 		elem.innerHTML = `<input id="studentGradeInput" type="text"><button id="gradeButton" onclick="gradeStudent()">Grade</button>`;
 
-		document.getElementById("studentView").appendChild(elem);
+		document.getElementById("card-text").appendChild(elem);
 	}
 }
 
 function gradeStudent() {
 	let Score = parseInt(document.getElementById("studentGradeInput").value);
-    if(Score > 100 || Score < 0 ){alert("WHAT THE FUCK BRO")}
-    else
-    {
-        document.getElementById("studentGrade").innerHTML = `Score: ${Score}/100`;
-        //change score in jason file
-    }
+	if (Score > 100 || Score < 0) {
+		alert("WHAT THE FUCK BRO");
+	} else {
+		document.getElementById(
+			"studentGrade"
+		).innerHTML = `Score: ${Score}/100`;
+		//change score in jason file
+	}
 }
 
 async function setup() {
@@ -70,7 +78,9 @@ async function setup() {
 	}
 	await requestData();
 	requestStudentData();
-	render();
+	studentData.assignments.forEach((studentAssignment) => {
+		render(studentAssignment);
+	});
 }
 
 setTimeout(setup, 100);

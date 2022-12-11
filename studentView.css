@@ -8,3 +8,14 @@
     align-items: center;
 }
 
+.card-group
+{
+    display: flex;
+    justify-content: center;
+}
+
+.card
+{
+    max-width: 30rem;
+    height: 20rem;
+}
