@@ -25,6 +25,7 @@
 	align-items: center;
 	flex-direction: column;
 	background-color: #f39c12;
+    padding: 1.5rem 0;
 }
 
 #studentCardGroup {
@@ -32,7 +33,7 @@
 }
 
 #studentGrade {
-    padding-top: 20rem;
+    padding-top: 15rem;
     display: flex;
 	justify-content: center;
 }
