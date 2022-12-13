@@ -54,13 +54,19 @@ function render() {
 	}
 }
 
+function UpdateScore(Score)
+{
+	console.log(Score);
+	//Update JSON
+}
+
 function gradeStudent() {
 	let Score = parseInt(document.getElementById("studentGradeInput").value);
     if(Score > 100 || Score < 0 ){alert("WHAT THE FUCK BRO")}
     else
     {
         document.getElementById("studentGrade").innerHTML = `Score: ${Score}/100`;
-        //change score in jason file
+        UpdateScore(Score);
     }
 }
 

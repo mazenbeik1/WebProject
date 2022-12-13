@@ -22,6 +22,12 @@ const drag = (event) => {
     event.dataTransfer.setData("text/plain", event.currentTarget.dataset.id);
 };
 
+function UpdateRole(newRole)
+{
+    console.log(newRole);
+    //Update JSON
+}
+
 const drop = (event) => {
     document
     .querySelectorAll(".column")
@@ -33,7 +39,7 @@ const drop = (event) => {
     event.preventDefault();
     event.currentTarget.innerHTML =
     event.currentTarget.innerHTML + event.dataTransfer.getData("text/html");
-    //change role in json file
+    UpdateRole(event.currentTarget.id.replace('sColumn',''));
 };
 
 const allowDrop = (event) => {
