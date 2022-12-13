@@ -30,21 +30,21 @@ function render() {
 	if (userRole == "expert" || userRole == "student" || studentID==userID) {
 		let fName = document.createElement("div");
 		fName.innerHTML = `${studentData.fName} ${studentData.lName}`;
-		document.getElementById("studentView").appendChild(fName);
+		document.getElementById("card-title").appendChild(fName);
 
 		let id = document.createElement("div");
 		id.innerHTML = studentID;
-		document.getElementById("studentView").appendChild(id);
+		document.getElementById("card-title").appendChild(id);
 	}
 
         let assignment = document.createElement("div");
 		assignment.innerHTML = `here should show assignment data`;
-		document.getElementById("studentView").appendChild(assignment);
+		document.getElementById("card-text").appendChild(assignment);
 
         let grade = document.createElement("div");
 		grade.innerHTML = `Score: ${studentData.grade}/100`;
         grade.id ="studentGrade";
-		document.getElementById("studentView").appendChild(grade);
+		document.getElementById("card-text").appendChild(grade);
 
 	if (userRole == "nerd" && !(studentID==userID)) {
 		let elem = document.createElement("div");

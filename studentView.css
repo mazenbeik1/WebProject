@@ -1,10 +1,38 @@
-
-
-.studentView
-{
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.studentView {
+	background-color: #3f4447;
+}
+.studentView {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5rem;
 }
 
+.card-group {
+	display: flex;
+	justify-content: center;
+}
+
+.card {
+	width: 30rem;
+	height: 30rem;
+}
+
+.card-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #f39c12;
+}
+
+#studentCardGroup {
+	margin-bottom: 5rem;
+}
+
+#studentGrade {
+    padding-top: 20rem;
+    display: flex;
+	justify-content: center;
+}
