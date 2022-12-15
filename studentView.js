@@ -62,7 +62,7 @@ function UpdateScore(Score)
 
 function gradeStudent() {
 	let Score = parseInt(document.getElementById("studentGradeInput").value);
-    if(Score > 100 || Score < 0 ){alert("WHAT THE FUCK BRO")}
+    if(Score > 100 || Score < 0 ){alert("Please enter a score between 0 and 100")}
     else
     {
         document.getElementById("studentGrade").innerHTML = `Score: ${Score}/100`;
