@@ -1,5 +1,5 @@
 # WebProject
 
-In order to use this website, firstly you need to download all the files.
+The website can be tested through the following link: https://mazenbeik1.github.io/WebProject/
 
-After that, you need to open Login.html file and you can login in as student, nerd or expert from the data inside Login.json file. 
+Login as a student, nerd, or expert by checking the json login data.
