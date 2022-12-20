@@ -2,17 +2,17 @@ let LoginData;
 
 async function login()
 {
+
     let promise = new Promise(function(Resolve)
     {
-        fetch("Login.json")
-        .then(Response => Response.json())
-        .then(data => {
-            Resolve(data);
-        })
+        let req = new XMLHttpRequest();
+        req.open("POST","server.js");
+        console.log("done");
+        req.send("fname=Henry&lname=Ford");
     })
     promise.then(
-        function(data){
-            LoginData = data;
+        function(){
+            
         }
     );
 
