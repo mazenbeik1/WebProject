@@ -3,10 +3,11 @@ const app = express();
 const fs = require("fs");
 const fileName = "./assignments.json";
 const file = require(fileName);
+let viewedStudentId;
+let userID;
 
 function roleCheck(id) {
 	let role;
-
 	file.forEach((student) => {
 		if (student.id == id) {
 			role = student.role;
@@ -36,28 +37,35 @@ app.get("/studentView.html", (req, res) => {
 });
 
 app.post("/studentView.html", (req, res) => {
-	console.log(req.body);
-	if (roleCheck(req.body.id) == "nerd" && !(studentID == userID)) {
+	userID = req.body.id;
+	let role = roleCheck(userID);
+
+	if (role == "nerd" && viewedStudentId != userID) {
+		console.log(viewedStudentId);
+		console.log(userID);
+
 		file.forEach((student) => {
-			if (student.id == req.body.id) {
+			if (student.id == viewedStudentId) {
 				student.grade = req.body.grade;
 			}
 		});
+		console.log("NERD PART");
 		fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
 			if (err) return console.log(err);
 			console.log("writing to " + fileName);
 		});
 		res.send("GRADE APPLIED.\nPLEASE CLOSE THIS TAB");
-	}
+	} /*if (role == "student" || role == "expert")*/
 
-	// student
-	else if (roleCheck(req.body.id) == "student") {
+	// student || role == "expert"
+	else {
 		file.forEach((student) => {
-			if (student.id == req.body.id) {
+			if (student.id == viewedStudentId) {
 				student.assignment = JSON.stringify(req.body.pdf);
 			}
 		});
 		console.log(JSON.stringify(req.body.pdf));
+		console.log("Student PART");
 
 		fs.writeFile(fileName, JSON.stringify(file), function writeJSON(err) {
 			if (err) return console.log(err);
@@ -65,4 +73,11 @@ app.post("/studentView.html", (req, res) => {
 			res.send("ASSIGNMENT SENT\nPLEASE CLOSE THIS TAB");
 		});
 	}
+});
+
+app.post("/nerdView.html", (req, res) => {
+	console.log(req.body);
+	viewedStudentId = req.body.viewedStudentID;
+	//res.send("index.html");
+	res.end();
 });

@@ -1,13 +1,5 @@
 [
 	{
-		"id": "19290872",
-		"role": "nerd",
-		"fName": "Mazen",
-		"lName": "Elbeik",
-		"assignedNerd": "20290872",
-		"assignment": "\"Ali Furkan Karaman's Resume.pdf\""
-	},
-	{
 		"id": "20290872",
 		"role": "expert",
 		"fName": "Ali",
@@ -17,13 +9,22 @@
 		"assignment": "null"
 	},
 	{
+		"id": "19290872",
+		"role": "nerd",
+		"fName": "Mazen",
+		"lName": "Elbeik",
+		"grade": "88",
+		"assignedNerd": "20290872",
+		"assignment": "\"Manas Türkçe Hazırlık belgesi.pdf\""
+	},
+	{
 		"id": "21290872",
 		"role": "student",
 		"fName": "Ogi",
 		"lName": "Kral",
-		"grade": "50",
+		"grade": "99",
 		"assignedNerd": "19290872",
-		"assignment": "null"
+		"assignment": "\"CV Türkçe.pdf\""
 	},
 	{
 		"id": "22290872",
@@ -31,7 +32,6 @@
 		"fName": "Benjamin",
 		"lName": "Batyrov",
 		"grade": "77",
-		"assignedNerd": "19290872",
-		"assignment": "null"
+		"assignedNerd": "19290872"
 	}
 ]

@@ -73,7 +73,7 @@ function render() {
 
 	if (userRole == "nerd" && !(studentID == userID)) {
 		let elem = document.createElement("div");
-		elem.innerHTML = `<input id="studentGradeInput" type="text" name="grade" onclick="gradeStudent()"><button id="gradeButton" >Grade</button>`;
+		elem.innerHTML = `<input id="studentGradeInput" type="text" name="grade" onclick="gradeStudent()"><button id="gradeButton" name="id" value="${userID}" >Grade</button>`;
 
 		document.getElementById("studentView").appendChild(elem);
 	}
