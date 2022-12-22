@@ -1,21 +1,14 @@
 let LoginData;
 
-async function login()
-{
-    let promise = new Promise(function(Resolve)
-    {
-        fetch("Login.json")
-        .then(Response => Response.json())
-        .then(data => {
-            Resolve(data);
-        })
-    })
-    promise.then(
-        function(data){
-            LoginData = data;
-        }
-    );
+// async function login() {
+// 	let promise = new Promise(function (Resolve) {
+// 		let req = new XMLHttpRequest();
+// 		req.open("POST", "localhost:3000");
+// 		console.log("done");
+// 		req.send("fname=Henry&lname=Ford");
+// 	});
+// 	promise.then(function () {});
 
-    await promise;
-    console.log(LoginData.length)
-}
+// 	await promise;
+// 	console.log(LoginData.length);
+// }
