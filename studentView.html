@@ -14,18 +14,31 @@
 			crossorigin="anonymous"
 		/>
 	</head>
-	<body class="studentView" id="studentView">
-		<div class="card-group" id="studentCardGroup">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title" id="card-title"></h5>
-					<p class="card-text" id="card-text">
-					</p>
-				</div>
-				<div class="card-footer">
-					<small class="text-muted">Last updated 3 mins ago</small>
+	<body>
+		<form
+			class="studentView"
+			id="studentView"
+			action="/studentView.html"
+			method="POST"
+		>
+			<div class="card-group" id="studentCardGroup">
+				<div class="card">
+					<div class="card-body" id="card-body" value="" name="id">
+						<h5 class="card-title" id="card-title"></h5>
+						<p class="card-text" id="card-text"></p>
+					</div>
+					<div class="card-footer">
+						<small class="text-muted"
+							>Last updated 3 mins ago</small
+						>
+					</div>
 				</div>
 			</div>
-		</div>
+		</form>
+		<form
+			id="pdfSubmissionForm"
+			action="/studentView.html"
+			method="POST"
+		></form>
 	</body>
 </html>

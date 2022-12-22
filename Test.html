@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="Login.css" rel="stylesheet" />
-    <title>Document</title>
-    <script src="Test.js"></script>
-    
-  </head>
-  <body>
-        <h1 style="display: block;">Login</h1>
-        <div >
-            <input type="text" id="StudentId" placeholder="StudentID" style="display: block;"/>
-        </div>
-        <div >
-            <input type="password" id="Password" placeholder="Password" style="display: block;"/>
-        </div>
-        <button style="display: block;" onclick="login()">Login</button>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="Login.css" rel="stylesheet" />
+		<title>Document</title>
+		<script src="Test.js"></script>
+	</head>
+	<body>
+		<form action="/" method="POST">
+			<h1 style="display: block">Login</h1>
+			<div>
+				<input
+					type="text"
+					id="StudentId"
+					placeholder="StudentID"
+					style="display: block"
+					name="id"
+				/>
+			</div>
+			<div>
+				<input
+					type="password"
+					id="Password"
+					placeholder="Password"
+					style="display: block"
+					name="password"
+				/>
+			</div>
+			<button style="display: block">Login</button>
+		</form>
+	</body>
 </html>

@@ -1,3 +1,11 @@
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: #3f4447 !important;
+	justify-content: center;
+	align-items: center;
+}
+
 .studentView {
 	background-color: #3f4447;
 }
@@ -25,7 +33,7 @@
 	align-items: center;
 	flex-direction: column;
 	background-color: #f39c12;
-    padding: 1.5rem 0;
+	padding: 1.5rem 0;
 }
 
 #studentCardGroup {
@@ -33,7 +41,16 @@
 }
 
 #studentGrade {
-    padding-top: 15rem;
-    display: flex;
+	padding-top: 15rem;
+	display: flex;
 	justify-content: center;
+}
+
+#pdfSubmissionForm {
+	display: flex;
+}
+
+.btn {
+	height: 2.5rem !important;
+	width: 5rem !important;
 }

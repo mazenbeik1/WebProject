@@ -27,7 +27,7 @@ function requestStudentData() {
 }
 
 function render() {
-	if (userRole == "expert" || userRole == "student" || studentID==userID) {
+	if (userRole == "expert" || userRole == "student" || studentID == userID) {
 		let fName = document.createElement("div");
 		fName.innerHTML = `${studentData.fName} ${studentData.lName}`;
 		document.getElementById("card-title").appendChild(fName);
@@ -37,37 +37,63 @@ function render() {
 		document.getElementById("card-title").appendChild(id);
 	}
 
-        let assignment = document.createElement("div");
-		assignment.innerHTML = `here should show assignment data`;
-		document.getElementById("card-text").appendChild(assignment);
+	if (userRole == "student" || studentID == userID) {
+		let pdfSubmission = document.createElement("input");
+		pdfSubmission.className = "form-control";
+		pdfSubmission.type = "file";
+		pdfSubmission.accept = "application/pdf";
+		pdfSubmission.name = "pdf";
+		document.getElementById("pdfSubmissionForm").appendChild(pdfSubmission);
 
-        let grade = document.createElement("div");
-		grade.innerHTML = `Score: ${studentData.grade}/100`;
-        grade.id ="studentGrade";
-		document.getElementById("card-text").appendChild(grade);
+		let submitButton = document.createElement("button");
+		submitButton.className = "btn btn-primary";
+		submitButton.name = "id";
+		submitButton.value = studentID;
+		document.getElementById("pdfSubmissionForm").appendChild(submitButton);
+	}
 
-	if (userRole == "nerd" && !(studentID==userID)) {
+	// let idInput = document.createElement("input");
+	// idInput.type = "radio";
+	// idInput.value = studentID;
+	// idInput.name = "id";
+	// if (userRole == "student" || studentID == userID) {
+	// 	document.getElementById("pdfSubmissionForm").appendChild(idInput);
+	// } else {
+	// 	document.getElementById("studentView").appendChild(idInput);
+	// }
+
+	let assignment = document.createElement("div");
+	assignment.innerHTML = `here should show assignment data`;
+	document.getElementById("card-text").appendChild(assignment);
+
+	let grade = document.createElement("div");
+	grade.innerHTML = `Score: ${studentData.grade}/100`;
+	grade.id = "studentGrade";
+	document.getElementById("card-text").appendChild(grade);
+
+	if (userRole == "nerd" && !(studentID == userID)) {
 		let elem = document.createElement("div");
-		elem.innerHTML = `<input id="studentGradeInput" type="text"><button id="gradeButton" onclick="gradeStudent()">Grade</button>`;
+		elem.innerHTML = `<input id="studentGradeInput" type="text" name="grade" onclick="gradeStudent()"><button id="gradeButton" >Grade</button>`;
 
 		document.getElementById("studentView").appendChild(elem);
 	}
 }
 
-function UpdateScore(Score)
-{
+function UpdateScore(Score) {
 	console.log(Score);
 	//Update JSON
 }
 
 function gradeStudent() {
 	let Score = parseInt(document.getElementById("studentGradeInput").value);
-    if(Score > 100 || Score < 0 ){alert("Please enter a score between 0 and 100")}
-    else
-    {
-        document.getElementById("studentGrade").innerHTML = `Score: ${Score}/100`;
-        UpdateScore(Score);
-    }
+	if (Score > 100 || Score < 0) {
+		alert("Please enter a score between 0 and 100");
+	} else {
+		document.getElementById(
+			"studentGrade"
+		).innerHTML = `Score: ${Score}/100`;
+		UpdateScore(Score);
+	}
 }
 
 async function setup() {
