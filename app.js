@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 3000;
+var serv = require('http').Server(app);
 const fs = require("fs");
 const fileName = "./assignments.json";
 const file = require(fileName);
@@ -18,8 +20,8 @@ function roleCheck(id) {
 	return role;
 }
 
-app.listen(3000);
-app.use(express.urlencoded({ extended: true }));
+//app.listen(3000);
+//app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
 	res.sendFile("./index.html", { root: __dirname });
@@ -81,3 +83,6 @@ app.post("/nerdView.html", (req, res) => {
 	//res.send("index.html");
 	res.end();
 });
+
+app.use('/client', express.static(__dirname + '/client'));
+serv.listen(PORT);
