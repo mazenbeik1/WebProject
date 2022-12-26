@@ -62,9 +62,9 @@ function render() {
 	// 	document.getElementById("studentView").appendChild(idInput);
 	// }
 
-	let assignment = document.createElement("div");
-	assignment.innerHTML = `here should show assignment data`;
-	document.getElementById("card-text").appendChild(assignment);
+	let studentAssignment = document.createElement("div");
+	studentAssignment.innerHTML = `${studentData.assignment}`;
+	document.getElementById("card-text").appendChild(studentAssignment);
 
 	let grade = document.createElement("div");
 	grade.innerHTML = `Score: ${studentData.grade}/100`;
