@@ -4,7 +4,7 @@
 		"role": "expert",
 		"fName": "Ali",
 		"lName": "Furkan",
-		"grade": "40",
+		"grade": "0",
 		"assignedNerd": "19290872",
 		"assignment": "null"
 	},
@@ -13,16 +13,16 @@
 		"role": "nerd",
 		"fName": "Mazen",
 		"lName": "Elbeik",
-		"grade": "88",
+		"grade": "0",
 		"assignedNerd": "20290872",
-		"assignment": "\"Manas Türkçe Hazırlık belgesi.pdf\""
+		"assignment": "null"
 	},
 	{
 		"id": "21290872",
 		"role": "student",
 		"fName": "Ogi",
 		"lName": "Kral",
-		"grade": "99",
+		"grade": "53",
 		"assignedNerd": "19290872",
 		"assignment": "\"CV Türkçe.pdf\""
 	},
@@ -31,7 +31,8 @@
 		"role": "student",
 		"fName": "Benjamin",
 		"lName": "Batyrov",
-		"grade": "77",
-		"assignedNerd": "19290872"
+		"grade": "0",
+		"assignedNerd": "19290872",
+		"assignment": "null"
 	}
 ]
